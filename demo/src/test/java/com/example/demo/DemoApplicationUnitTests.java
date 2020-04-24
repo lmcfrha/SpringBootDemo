@@ -37,5 +37,4 @@ class DemoApplicationUnitTests {
 		testReporter.publishEntry("Get message: "+m);
 		assertNotNull(m);
 	}
-
 }
