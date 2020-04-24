@@ -18,11 +18,6 @@ import com.example.demo.model.Message;
 import com.example.demo.model.User;
 import com.example.demo.model.impl.MessagePropImpl;
 
-//@SpringBootTest
-//@SpringBootTest(classes=)
-//@ComponentScan
-//@SpringBootTest(classes=com.example.demo.DemoApplication.class)
-//@AutoConfigureMockMvc
 class DemoApplicationUnitTests {
 
 	// Unit Tests: at the most basic, test code without a need for an
