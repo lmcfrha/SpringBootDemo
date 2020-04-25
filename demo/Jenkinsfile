@@ -4,7 +4,7 @@ pipeline {
    stages {
       stage('Hello') {
          steps {
-            git 'C:\\Data\\BETE\\TMobile\\CRs\\SpringBootDemo'
+            git 'C:\\Data\\BETE\\TMobile\\CRs\\SpringBootDemo\\demo'
          }
       }
    }
