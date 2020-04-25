@@ -2,7 +2,7 @@ pipeline {
    agent any
 
    stages {
-      stage('Hello') {
+      stage('Hello lmcfrha') {
          steps {
             git 'C:\\Data\\BETE\\TMobile\\CRs\\SpringBootDemo'
          }
