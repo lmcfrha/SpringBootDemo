@@ -53,5 +53,19 @@
 			</plugin>
 		</plugins>
 	</build>
+	
+<distributionManagement>
+    <repository>
+        <id>sd-mana-tmo-des-maven-central</id>
+        <name>sd-mana-tmo-des-maven-releases</name>
+        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
+    </repository>
+
+    <snapshotRepository>
+        <id>sd-mana-tmo-des-maven-snapshots</id>
+        <name>sd-mana-tmo-des-maven-snapshots</name>
+        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
+    </snapshotRepository>
+</distributionManagement>
 
 </project>

@@ -2,10 +2,43 @@ pipeline {
    agent any
 
    stages {
-      stage('Hello - lmcfrha') {
+   
+      // First stage, just a test.
+      stage('Test pipeline start') {
          steps {
-            git 'C:\\Data\\BETE\\TMobile\\CRs\\SpringBootDemo'
+//            git 'C:\\Data\\BETE\\TMobile\\CRs\\SpringBootDemo'
+ 			echo 'Hello here, Test stage of the pipeline...'
          }
       }
+      
+      // Maven Build with Tests: output is the executable Springboot Jar
+      stage('Maven test, package, deploy') {
+         steps {
+             dir("demo") {
+             withMaven(
+             // Maven installation declared in the Jenkins "Global Tool Configuration"
+             maven: 'maven_3_6_3')
+                {
+                bat "mvn deploy"
+                } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
+             }
+         }               
+      }
+    
+//      stage('Deploy to Artifactory') {
+//         steps {
+//             dir("demo/target") {
+//             response = powershell (script: 'Invoke-WebRequest https://blibli/artifactory/sd-mana-tmo-des-maven/cac/demo/demo-0.0.1-SNAPSHOT.jar -Headers @{"X-JFrog-Art-Api"="blabla"} -Proxy http://www-proxy.ericsson.se:8080 -Method PUT -InFile demo-0.0.1-SNAPSHOT.jar', returnStdout: true)
+//             script {
+//                def response = powershell (script: 'Invoke-WebRequest https://blibli/artifactory/sd-mana-tmo-des-maven/cac/demo/demo-0.0.1-SNAPSHOT.jar -Headers @{"X-JFrog-Art-Api"="blabla"} -Proxy http://www-proxy.ericsson.se:8080 -Method PUT -InFile demo-0.0.1-SNAPSHOT.jar', returnStdout: true)           
+//    			if (!response.contains("201 Created")) {
+//        			error("Deployment to Artifactory failed")
+//    				}
+//			 	}
+//             powershell("""Invoke-WebRequest https://blibli/artifactory/sd-mana-tmo-des-maven/cac/demo/demo-0.0.1-SNAPSHOT.jar -Headers @{"X-JFrog-Art-Api"="blabla"} -Proxy http://www-proxy.ericsson.se:8080 -Method PUT -InFile demo-0.0.1-SNAPSHOT.jar""")
+//             }
+//         }               
+//      }
+            
    }
 }
