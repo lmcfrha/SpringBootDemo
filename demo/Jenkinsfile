@@ -19,7 +19,7 @@ pipeline {
              // Maven installation declared in the Jenkins "Global Tool Configuration"
              maven: 'maven_3_6_3')
                 {
-                bat "mvn deploy"
+                bat "mvn install"
                 } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
              }
          }               
@@ -33,13 +33,13 @@ pipeline {
 				   ./makeDockerImage.ps1"""
 				   , returnStdout: true)
 				}
-				powershell (script: 
-				   """cd demo"""
-				   , returnStdout: true)
+				dir("demo") {
 				script {
 				def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 				springBootDemoImage.push()
- 				}                                   
+ 				}   				    
+				}
+                                
 			}
                                                 
       }
