@@ -25,13 +25,15 @@ pipeline {
          }               
       }
       
-      stage('Build image and push to Docker Registry') {
+      stage('Build image') {
 			steps {   
 				dir("demo") {                         
 				   powershell (script: 
 				   """Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 				   ./makeDockerImage.ps1"""
 				   , returnStdout: true)
+				   def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
+				   springBootDemoImage.push()
  				}
                                                
 			}
