@@ -28,8 +28,8 @@ pipeline {
       stage('Build image and push to Docker Registry') {
 			steps {                                              
 			   powershell (script: 
-			   'Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process',
-			   './makeDockerImage.ps1'
+			   """Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
+			   ./makeDockerImage.ps1"""
 			   , returnStdout: true)
  
                                                
