@@ -40,10 +40,8 @@ pipeline {
 		//					def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 							springBootDemoImage.push()
 						}
-						def testImage = docker.image('openjdk:8u191-jre-alpine')
-						testImage.pull()
 						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
-							testImage.push()
+							springBootDemoImage.push()
 						}
  					}   				    
 				}
