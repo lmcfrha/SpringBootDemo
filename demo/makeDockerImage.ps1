@@ -5,6 +5,6 @@ mkdir target/dependency
 cd target/dependency
 C:\'Program Files'\Java\jdk1.8.0_151\bin\jar -xf ../*.jar
 cd ../..
-#docker build -t lmcfrha/spring-boot-demo .
-#docker push lmcfrha/spring-boot-demo
+# docker build -t lmcfrha/spring-boot-demo .
+# docker push lmcfrha/spring-boot-demo
  
