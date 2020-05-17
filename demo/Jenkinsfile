@@ -32,10 +32,13 @@ pipeline {
 				   """Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process
 				   ./makeDockerImage.ps1"""
 				   , returnStdout: true)
-				   def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
-				   springBootDemoImage.push()
- 				}
-                                               
+				}
+				powershell (script: 
+				   """cd demo"""
+				   , returnStdout: true)
+				def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
+				springBootDemoImage.push()
+ 				                                          
 			}
                                                 
       }
