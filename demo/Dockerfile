@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:8u191-jre-alpine
 ARG DEPENDENCY=target/dependency
 RUN addgroup -S msdp && adduser -S msdp -G msdp
 USER msdp:msdp
