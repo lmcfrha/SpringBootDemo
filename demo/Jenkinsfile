@@ -40,7 +40,7 @@ pipeline {
 							springBootDemoImage.push()
 						}
 									
-						docker.withRegistry('sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
+						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
 							springBootDemoImage.push()
 						}
  					}   				    
