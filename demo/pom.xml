@@ -16,6 +16,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<jacoco.version>0.8.5</jacoco.version>
 	</properties>
 
 	<dependencies>
@@ -51,21 +52,41 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+<!--  adding code covering Jacoco -->
+			<plugin>
+			    <groupId>org.jacoco</groupId>
+			    <artifactId>jacoco-maven-plugin</artifactId>
+			    <version>${jacoco.version}</version>
+			    <executions>
+			        <execution>
+			            <goals>
+			                <goal>prepare-agent</goal>
+			            </goals>
+			        </execution>
+			        <execution>
+			            <id>report</id>
+			            <phase>prepare-package</phase>
+			            <goals>
+			                <goal>report</goal>
+			            </goals>
+			        </execution>
+			    </executions>
+			</plugin>			
 		</plugins>
 	</build>
 	
-<distributionManagement>
-    <repository>
-        <id>rosettaMavenRel</id>
-        <name>rosettaMavenRel</name>
-        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
-    </repository>
-
-    <snapshotRepository>
-        <id>rosettaMavenSnap</id>
-        <name>rosettaMavenSnap</name>
-        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
-    </snapshotRepository>
-</distributionManagement>
+	<distributionManagement>
+	    <repository>
+	        <id>rosettaMavenRel</id>
+	        <name>rosettaMavenRel</name>
+	        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
+	    </repository>
+	
+	    <snapshotRepository>
+	        <id>rosettaMavenSnap</id>
+	        <name>rosettaMavenSnap</name>
+	        <url>https://artifactory.rosetta.ericssondevops.com/artifactory/sd-mana-tmo-des-maven</url>
+	    </snapshotRepository>
+	</distributionManagement>
 
 </project>
