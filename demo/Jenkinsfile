@@ -19,7 +19,7 @@ pipeline {
              // Maven installation declared in the Jenkins "Global Tool Configuration"
              maven: 'maven_3_6_3')
                 {
-                bat "mvn install"
+                bat "mvn deploy"
                 } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe & FindBugs & SpotBugs reports...
              }
          }               
