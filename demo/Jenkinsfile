@@ -37,12 +37,12 @@ pipeline {
 					script {
 						def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 						docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
-//							def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
+		//					def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 							springBootDemoImage.push()
 						}
-									
+						def testImage = docker pull 'openjdk:8u191-jre-alpine'
 						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
-							springBootDemoImage.push()
+							testImage.push()
 						}
  					}   				    
 				}
