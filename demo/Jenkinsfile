@@ -36,9 +36,10 @@ pipeline {
 				powershell (script: 
 				   """cd demo"""
 				   , returnStdout: true)
+				script {
 				def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 				springBootDemoImage.push()
- 				                                          
+ 				}                                   
 			}
                                                 
       }
