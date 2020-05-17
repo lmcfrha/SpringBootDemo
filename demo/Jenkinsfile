@@ -34,10 +34,12 @@ pipeline {
 				   , returnStdout: true)
 				}
 				dir("demo") {
-				script {
-				def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
-				springBootDemoImage.push()
- 				}   				    
+					script {
+						docker.withRegistry('https://hub.docker.com/', 'DockerHub') {
+							def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
+							springBootDemoImage.push()
+						}
+ 					}   				    
 				}
                                 
 			}
