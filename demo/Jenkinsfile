@@ -40,7 +40,7 @@ pipeline {
 		//					def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 							springBootDemoImage.push()
 						}
-						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
+						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'Artifactory_Rosetta') {
 							def rtSpringBootDemo = docker.build 'sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com/spring-boot-demo:snapshot'
 							rtSpringBootDemo.push()
 						}
