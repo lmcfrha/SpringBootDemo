@@ -41,7 +41,8 @@ pipeline {
 							springBootDemoImage.push()
 						}
 						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'rosetta_artifactory') {
-							springBootDemoImage.push()
+						
+							springBootDemoImage.push('sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com/spring-boot-demo:snapshot')
 						}
  					}   				    
 				}
