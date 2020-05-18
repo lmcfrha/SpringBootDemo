@@ -35,7 +35,7 @@ pipeline {
 				}
 				dir("demo") {
 					script {
-						def springBootDemoImage = docker.build 'spring-boot-demo:snapshot'
+						def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 						docker.withRegistry('https://index.docker.io/v1/', 'DockerHub') {
 		//					def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 							springBootDemoImage.push()
