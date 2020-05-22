@@ -12,7 +12,7 @@ pipeline {
       }
       
       // Maven Build with Tests: output is the executable Springboot Jar
-      stage('Maven test, package, deploy') {
+/*      stage('Maven test, package, deploy') {
          steps {
              dir("demo") {
              withMaven(
@@ -50,10 +50,10 @@ pipeline {
 			}
                                                 
       }
-
+*/
       stage('Install in K8S with Helm Chart') {
 			steps {
-			       bat 'kubectl context view'   
+			       bat 'kubectl config view'   
                    bat 'helm upgrade spring-boot-demo-helmed mana/spring-boot-demo  --install'	
  				}   				    
 	  }
