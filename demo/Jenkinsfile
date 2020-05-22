@@ -52,7 +52,8 @@ pipeline {
       }
 
       stage('Install in K8S with Helm Chart') {
-			steps {   
+			steps {
+			       bat 'kubectl context view'   
                    bat 'helm upgrade spring-boot-demo-helmed mana/spring-boot-demo  --install'	
  				}   				    
 	  }
