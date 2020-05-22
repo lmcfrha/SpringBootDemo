@@ -40,10 +40,10 @@ pipeline {
 		//					def springBootDemoImage = docker.build 'lmcfrha/spring-boot-demo:snapshot'
 							springBootDemoImage.push()
 						}
-//						docker.withRegistry('https://sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com', 'Artifactory_Rosetta') {
-//							def rtSpringBootDemo = docker.build 'sd-mana-tmo-des-docker.artifactory.rosetta.ericssondevops.com/spring-boot-demo:snapshot'
-//							rtSpringBootDemo.push()
-//						}
+						docker.withRegistry('https://tmo-nsim-registry.artifactory.mana.ericssondevops.com', 'Artifactory_Mana') {
+							def rtSpringBootDemo = docker.build 'tmo-nsim-registry.artifactory.mana.ericssondevops.com/spring-boot-demo:snapshot'
+							rtSpringBootDemo.push()
+						}
  					}   				    
 				}
                                 
