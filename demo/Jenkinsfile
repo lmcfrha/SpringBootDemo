@@ -51,7 +51,15 @@ pipeline {
                                                 
       }
 
-    
+      stage('Install in K8S with Helm Chart') {
+			steps {   
+                   bat 'helm upgrade spring-boot-demo-helmed mana/spring-boot-demo  --install'	
+ 				}   				    
+	  }
+                                
+			
+                                                
+          
 //      stage('Deploy to Artifactory') {
 //         steps {
 //             dir("demo/target") {
