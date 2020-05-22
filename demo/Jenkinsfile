@@ -53,7 +53,9 @@ pipeline {
 */
       stage('Install in K8S with Helm Chart') {
 			steps {
-			       bat 'kubectl config view --kubeconfig "C:/Users/lmcfrha/.kube/config"'  
+			       bat 'kubectl config view --kubeconfig "C:/Users/lmcfrha/.kube/config"' 
+			       bat 'helm repo list --kubeconfig "C:/Users/lmcfrha/.kube/config"'	
+			       bat 'helm repo update --kubeconfig "C:/Users/lmcfrha/.kube/config"'	
                    bat 'helm upgrade spring-boot-demo-helmed mana/spring-boot-demo  --install --kubeconfig "C:/Users/lmcfrha/.kube/config"'	
  				}   				    
 	  }
